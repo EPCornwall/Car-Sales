@@ -20,14 +20,27 @@ export const initialState = {
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case REMOVE_FEATURE:
-            console.log("remove is running")
+            // console.log("remove is running")
+            const removedItem = action.payload
+            const unRemoved = state.car.features.filter( item => item.id !== action.payload.id )
             return{
-                ...state
+                ...state,
+                additionalPrice: state.additionalPrice - action.payload.price,
+                car:{
+                    ...state.car,
+                    features:[unRemoved]},
+                additionalFeatures:[...state.additionalFeatures, removedItem]
             }
         case ADD_FEATURE:
-            console.log("add is running")
+            // console.log("add is running", action.payload);
+            let newItem = action.payload
+            const unAddedItems = state.additionalFeatures.filter(item => item.id !== action.payload.id)
             return{
-                ...state
+                ...state,
+                additionalPrice: state.additionalPrice += action.payload.price,
+                car: {...state.car,
+                features:[...state.car.features, newItem],},
+                additionalFeatures: unAddedItems
             }
         default:
             return state;
