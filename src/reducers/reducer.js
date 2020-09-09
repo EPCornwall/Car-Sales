@@ -19,7 +19,7 @@ export const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case "REMOVE_FEATURE":
+        case REMOVE_FEATURE:
             console.log("remove is running")
             return{
                 ...state

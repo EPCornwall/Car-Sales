@@ -1,6 +1,5 @@
 import React from 'react';
 import AdditionalFeature from './AdditionalFeature';
-import { addFeature } from '../actions';
 
 const AdditionalFeatures = props => {
   return (

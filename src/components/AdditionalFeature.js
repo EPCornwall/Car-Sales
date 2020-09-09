@@ -4,7 +4,7 @@ import React from 'react';
 const AdditionalFeature = props => {
   const handleAdd = (e) =>{
     e.preventDefault();
-    props.addFeature(props.feature.name)
+    props.addFeature(props.feature)
   }
   return (
     <li>
